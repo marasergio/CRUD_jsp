@@ -4,26 +4,26 @@ import com.ogordo.model.Cliente;
 import java.util.ArrayList;
 import java.util.List;
 
-// clientedao herda os atributos e metodos da classe Dao(respons·vel pela conexao com o banco).
+// clientedao herda os atributos e metodos da classe Dao(respons√°vel pela conexao com o banco).
 public class ClienteDAO extends DAO {
 
     public void cadastrar(Cliente c) throws Exception {
         openDatabase();		// inicia a conexao com o banco
         
-		// instruÁ„o sql para inserir dados no banco
+		// instru√ß√£o sql para inserir dados no banco
 		String sql = "INSERT INTO tbl_cliente VALUES (null, ?,?,?,?)";
         
-		// a instrucao sql fica em stand by, aguandando setar as informaÁıes
+		// a instrucao sql fica em stand by, aguandando setar as informa√ß√µes
 		stmt = conexao.prepareStatement(sql);
 		
-		// aqui s„o setados os valos do objeto cliente para serem inseridos no banco
+		// aqui ss√£oo setados os valos do objeto cliente para serem inseridos no banco
         stmt.setString(1, c.getNome());
         stmt.setString(2, c.getTelefone());
         stmt.setString(3, c.getEmail());
         stmt.setString(4, c.getSite());
 		
 		
-        stmt.execute();		// a instruÁ„o SQL È executada
+        stmt.execute();		// a instru√ß√£o SQL √© executada
         CloseDatabase();	// fecha conexao com o banco
     }
 
@@ -46,10 +46,10 @@ public class ClienteDAO extends DAO {
         
         stmt = conexao.prepareStatement(sql);
         
-		// executa a instruÁ„o SQL e diz para o ResultSet armazenar os dados da pesquisa
+		// executa a instru√ß√£o SQL e diz para o ResultSet armazenar os dados da pesquisa
 		rs = stmt.executeQuery();
 		
-		// Enquanto existir prÛximo(algum cliente cadastrado)
+		// Enquanto existir pr√≥ximo(algum cliente cadastrado)
         while(rs.next()){
             // cria um objeto para receber os dados de cada cliente
 			Cliente c1 = new Cliente();

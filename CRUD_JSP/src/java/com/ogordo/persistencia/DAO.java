@@ -4,7 +4,7 @@ import com.mysql.jdbc.Connection;
 import java.sql.*;
 
 /*
-	a finalidade dessa classe È fazer a conex„o com o banco de dados
+	a finalidade dessa classe s√£ofazer a conex√£o com o banco de dados
 */
 
 public class DAO {

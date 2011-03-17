@@ -1,4 +1,4 @@
-<%@page import="com.ogordo.persistencia.ClienteDAO,com.ogordo.model.Cliente"%>
+﻿<%@page import="com.ogordo.persistencia.ClienteDAO,com.ogordo.model.Cliente"%>
 
 <%
 
@@ -18,7 +18,7 @@ try{
             cd.cadastrar(c);
             //out.print("Cadastrado com sucesso");
 
-            // Aqui atribui uma variavek msg que receve um texto para serexibida na index
+            // Aqui atribui uma variavel msg que recebe um texto para ser exibida na index
             request.setAttribute("msg", "Cadastrado com Sucesso!");
             request.getRequestDispatcher("index.jsp").forward(request, response);
 

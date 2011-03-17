@@ -1,4 +1,4 @@
-<%@page import="com.ogordo.model.Cliente, com.ogordo.persistencia.ClienteDAO" %>
+﻿<%@page import="com.ogordo.model.Cliente, com.ogordo.persistencia.ClienteDAO" %>
 <%@page import="java.util.List"%>
 <%-- 
     Document   : index
