@@ -1,4 +1,4 @@
-ï»¿<%@page import="com.ogordo.persistencia.ClienteDAO,com.ogordo.model.Cliente"%>
+<%@page import="com.ogordo.persistencia.ClienteDAO,com.ogordo.model.Cliente"%>
 
 <%
 
@@ -32,7 +32,7 @@ try{
 
 
 }catch(NullPointerException nexp){
-    out.print("Você não devia estar vendo esta página");
+    out.print("Voc? n?o devia estar vendo esta p?gina");
 
 }
 
