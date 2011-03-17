@@ -27,9 +27,31 @@ public class ClienteDAO extends DAO {
         CloseDatabase();	// fecha conexao com o banco
     }
 
+    public Cliente buscaPorId (int id) throws Exception{
+        openDatabase();
+
+        String sql = "SELECT * FROM tbl_cliente WHERE clie_cod_cliente=?";
+        stmt = conexao.prepareStatement(sql);
+        stmt.setInt(1, id);
+
+        rs = stmt.executeQuery();
+
+        Cliente c = new Cliente();
+
+        if(rs.next()){
+            c.setCod_cliente(rs.getInt("clie_cod_cliente"));
+            c.setNome(rs.getString("clie_nome"));
+            c.setTelefone(rs.getString("clie_telefone"));
+            c.setEmail(rs.getString("clie_email"));
+            c.setSite(rs.getString("clie_site"));
+        }
+        CloseDatabase();
+        return c;
+    }
+    
     public void delete(Cliente c) throws Exception {
         openDatabase();
-        String sql = "DELETE tbl_cliente WHERE clie+_cod_cliente=?";
+        String sql = "DELETE from tbl_cliente WHERE clie_cod_cliente=?";
         stmt = conexao.prepareStatement(sql);
 
         stmt.setInt(1, c.getCod_cliente());

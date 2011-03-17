@@ -24,15 +24,32 @@ try{
 
         }catch(Exception e){
             out.print("ERRO " + e.getMessage());
-
         }
 
+    }else if(action.equalsIgnoreCase("excluir")){
+         try{
+            int cod_cliente = Integer.parseInt(request.getParameter("cod_cliente"));
+            ClienteDAO cd = new ClienteDAO();
+            Cliente c = new Cliente();
+
+            c = cd.buscaPorId(cod_cliente);
+            
+            // apos a busca checar e excluir
+            if(c.getCod_cliente()>0){
+                cd.delete(c);
+                request.setAttribute("msg", "Deletado com Sucesso!");
+                request.getRequestDispatcher("index.jsp").forward(request, response);
+            }
+
+         }catch(Exception e){
+             out.print("ERRO: " + e.getMessage());
+         }
     }
 
 
 
 }catch(NullPointerException nexp){
-    out.print("Voc? n?o devia estar vendo esta p?gina");
+    out.print("Você não devia estar vendo esta página");
 
 }
 

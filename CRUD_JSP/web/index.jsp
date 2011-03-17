@@ -49,13 +49,14 @@
                 <th>Telefone</th>
                 <th>Email</th>
                 <th>Site</th>
+                <th>Excluir</th>
+                <th>Atualizar</th>
             </tr>
             <%
             try{
                 ClienteDAO cd = new ClienteDAO();
                 List<Cliente> lista = cd.ListaClientes();
                 for(Cliente c : lista ){
-           
             %>
 
             <tr>
@@ -64,6 +65,9 @@
                 <td><%= c.getTelefone() %></td>
                 <td><%= c.getEmail() %></td>
                 <td><%= c.getSite() %></td>
+                <td><% out.print("<a href=controle.jsp?action=excluir&cod_cliente="+c.getCod_cliente()+ ">Excluir</a>"); %></td>
+                <td><% out.print("<a href=atualizar.jsp&cod_cliente=" + c.getCod_cliente() +">Atualizar</a>" ); %></td>
+                
             </tr>
 
             <%
