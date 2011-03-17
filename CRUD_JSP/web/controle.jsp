@@ -49,7 +49,7 @@ try{
 
 
 }catch(NullPointerException nexp){
-    out.print("Você não devia estar vendo esta página");
+    out.print("Voce nao devia estar vendo esta pagina");
 
 }
 
