@@ -16,32 +16,8 @@
         <title>CRUD JSP</title>
     </head>
     <body>
-        <h1>Cadastro de Cliente</h1>
-        <form action="controle.jsp?action=cadastrar" method="post">
-            <label form="nome">Nome: </label><br />
-            <input type="text" name="nome" value="" /><br/>
-
-            <label form="telefone">Telefone: </label><br />
-            <input type="text" name="telefone" value="" /><br/>
-
-            <label form="email">Email: </label><br />
-            <input type="text" name="email" value="" /><br/>
-
-            <label form="site">Site: </label><br />
-            <input type="text" name="site" value="" /><br/>
-
-            <input type="submit" value="Cadastrar cliente" />
-        </form> <br /><br />
-        
-        <!-- resgata a variavel msg determinada no controller -->
-        <font style="color: red">
-            ${msg}
-        </font>
-        <br />
-        <br />
-
-        <!-- Listagem de contatos -->
-        <h2>Lista de Clientes</h2>
+         <!-- Listagem de contatos -->
+        <h1>Lista de Clientes</h1>
         <table width="100%" border="1">
             <tr>
                 <th>Código cliente</th>
@@ -66,7 +42,7 @@
                 <td><%= c.getEmail() %></td>
                 <td><%= c.getSite() %></td>
                 <td><% out.print("<a href=controle.jsp?action=excluir&cod_cliente="+c.getCod_cliente()+ ">Excluir</a>"); %></td>
-                <td><% out.print("<a href=atualizar.jsp&cod_cliente=" + c.getCod_cliente() +">Atualizar</a>" ); %></td>
+                <td><% out.print("<a href=atualizar.jsp?cod_cliente=" + c.getCod_cliente() +">Atualizar</a>" ); %></td>
                 
             </tr>
 
@@ -77,6 +53,13 @@
             }
             %>
         </table>
+        <a href="novo.jsp">Cadastrar Cliente</a>
         <!-- FIM - Listagem de contatos -->
+        <br /><br />
+
+        <!-- resgata a variavel msg determinada no controller -->
+        <font style="color: red">
+            ${msg}
+        </font>
     </body>
 </html>

@@ -20,7 +20,7 @@ try{
 
             // Aqui atribui uma variavel msg que recebe um texto para ser exibida na index
             request.setAttribute("msg", "Cadastrado com Sucesso!");
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            request.getRequestDispatcher("novo.jsp").forward(request, response);
 
         }catch(Exception e){
             out.print("ERRO " + e.getMessage());
@@ -44,6 +44,24 @@ try{
          }catch(Exception e){
              out.print("ERRO: " + e.getMessage());
          }
+    }else if(action.equalsIgnoreCase("update")){
+
+        Cliente c = new Cliente();
+        c.setCod_cliente(new Integer(request.getParameter("cod_cliente")));
+        c.setNome(request.getParameter("nome"));
+        c.setTelefone(request.getParameter("telefone"));
+        c.setEmail(request.getParameter("email"));
+        c.setSite(request.getParameter("site"));
+        ClienteDAO cd = new ClienteDAO();
+        try{
+        cd.update(c);
+        request.setAttribute("msg", "Atualizado com sucesso!");
+        request.getRequestDispatcher("atualizar.jsp").forward(request, response);
+
+        }catch(Exception e){
+        out.print("Erro:"+e.getMessage());
+        }
+
     }
 
 
