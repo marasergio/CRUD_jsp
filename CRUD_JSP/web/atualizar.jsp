@@ -14,7 +14,7 @@ try{
 
  <form action="controle.jsp?action=update" method="post">
             
-            <h3>Código do Cliente: <%= c.getCod_cliente()  %></h3>
+            <h3>Codigo do Cliente: <%= c.getCod_cliente()  %></h3>
             <label for="nome">Nome:</label><br />
             <input type="text" name="nome" value="<%= c.getNome()%>" /><br />
             <label for="telefone">Telefone:</label><br />
